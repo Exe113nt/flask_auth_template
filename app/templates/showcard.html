@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-between p-2">
+
+    <h1>Anket</h1>
+    <a href="/mycards"><button type="button" class="btn btn-primary">Back</button></a>
+
+    
+</div>
+<div class="p-2">
+    <img src="/static/{{ card.image }}.jpg" class="card-img-top " alt="..." style="max-width: 250px;">
+</div>
+<div class="card w-100 m-auto mt-5" style="width: 100%;">
+    
+    <div class="card-body">
+      <h5 class="card-title">First Name</h5>
+      <p class="card-text">{{card.firstName}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <h5 class="card-title">Middle Name</h5>
+        <p class="card-text">{{card.middleName}}</p>
+      </li>
+      <li class="list-group-item">
+        <h5 class="card-title">Last Name</h5>
+        <p class="card-text">{{card.lastName}}</p>
+      </li>
+      <li class="list-group-item">
+        <h5 class="card-title">Birth Date</h5>
+        <p class="card-text">{{card.birthDate}}</p>
+      </li>
+      <li class="list-group-item">
+        <h5 class="card-title">Favourite Color</h5>
+        <p class="card-text">{{card.favColor}}</p>
+      </li>
+      <li class="list-group-item">
+        <h5 class="card-title">Favourite Food</h5>
+        <p class="card-text">{{card.favFood}}</p>
+      </li>
+    </ul>
+
+    <div class="card-body">
+        <a href="/changecard/{{id}}/{{card.id}}"><button type="button" class="btn btn-success">Сhange Data</button></a>
+        <a href="/deletecard/{{id}}/{{card.id}}"><button type="button" class="btn btn-danger ml-1">Delete Card</button></a>
+    </div>
+  </div>
+{% endblock %}

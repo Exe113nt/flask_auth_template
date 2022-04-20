@@ -11,12 +11,16 @@ def create_app():
     app.config['SECRET_KEY'] = '0102'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.config['UPLOAD_FOLDER'] = '/static/'
 
     from .auth import auth as auth_blueprint
     app.register_blueprint(auth_blueprint)
 
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
+
+    from .cards import cards as cards_blueprint
+    app.register_blueprint(cards_blueprint)
 
     db.init_app(app)
     migrate = Migrate(app, db)

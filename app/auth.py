@@ -22,12 +22,12 @@ def login_post():
 
     user = User.query.filter_by(email=email).first()
 
-    if not user or not check_password_hash(user_password, password):
+    if not user or not check_password_hash(user.password, password):
         flash('Please check your login details and try again.')
         return redirect(url_for('auth.login_post'))
 
     login_user(user, remember=remember)
-    return redirect(url_for('main_profile'))
+    return redirect(url_for('cards.mycards'))
 
 @auth.route('/signup', methods=['POST'])
 def signup_post():
@@ -39,7 +39,7 @@ def signup_post():
     if user:
         return redirect(url_for('auth.signup_post'))
 
-    new_user = User(email=email, name=name, password=genereate_password_hash, method='sha256')
+    new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'))
 
     db.session.add(new_user)
     db.session.commit()

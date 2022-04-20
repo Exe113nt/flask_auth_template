@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-between p-2">
+    <h1>{{name}}'s Cards</h1>
+    <a href="/newcard"><button type="button" class="btn btn-primary">Add Card</button></a>
+    
+</div>
+
+
+<div class="row row-cols-1 row-cols-md-3 mt-50">
+    {% if not cards%}
+    <h2>You have no ankets yet</h2>
+    {% else %}
+    {% for card in cards%}
+    <a href="/showcard/{{id}}/{{card.id}}">
+        <div class="col mb-4">
+        <div class="card" style="max-width: 250px;">
+            <img src="/static/{{ card.image }}.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">{{card.firstName}} {{card.middleName}}</h5>
+            <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+            </div>
+        </div>
+        </div>
+    </a>
+    {% endfor %}
+    {% endif %}
+  </div>
+{% endblock %}

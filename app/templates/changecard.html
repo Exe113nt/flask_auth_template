@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-between p-2">
+    <h1>Update Card</h1>
+    
+</div>
+
+<form class="w-50 m-auto" method="POST" action="/changecard/{{id}}/{{card.id}}" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="exampleInputEmail1">First Name</label>
+      <input type="text" class="form-control" maxlength="40" name="firstName" value={{card.firstName}}>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Middle Name</label>
+        <input type="text" class="form-control" maxlength="40" name="middleName" value={{card.middleName}}>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Last Name</label>
+        <input type="text" class="form-control" maxlength="40" name="lastName" value={{card.lastName}}>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Date of Birth</label>
+        <input type="date" class="form-control" maxlength="40" name="birthDate" value={{card.birthDate}}>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Favourite Color</label>
+        <input type="text" class="form-control" maxlength="40" name="favColor" value={{card.favColor}}>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Favourite Food</label>
+        <input type="text" class="form-control" maxlength="40"  name="favFood" value={{card.favFood}}>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Personality Type</label>
+        <input type="text" class="form-control" maxlength="40" name="personalityType" value={{card.personalityType}}>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+        </div>
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="image">
+          <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+        </div>
+      </div>
+
+      <br>
+      <a href="/showcard/{{id}}/{{card.id}}"><button type="button" class="btn btn-success">Back</button></a>
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+
+  {% endblock %}
