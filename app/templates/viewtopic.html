@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-between p-2">
+   <h1></h1>
+</div>
+<div class="card" style="margin-bottom: 50px;">
+   <div class="card-body ">
+      <div class="" style="margin-bottom: 50px;">
+         <h5 class="card-title m-auto" >{{topic.theme}}</h5>
+      </div>
+      <div>
+         <p class="card-text">{{topic.text}}</p>
+      </div>
+   </div>
+</div>
+{% if current_user.is_authenticated %}
+<form action="/addcomment" method="POST" style="margin-bottom: 50px;">
+    <input type="text" name='topicId' value="{{topic.id}}" hidden>
+   <div class="input-group">
+      <div class="input-group-prepend">
+         <span class="input-group-text">Comment</span>
+      </div>
+      <input type="text" class="form-control" name="commentText">
+      <div class="input-group-append">
+        <input type="submit" class="input-group-text bg-success text-white" id="basic-addon2" value="Submit">
+        
+     </div>
+   </div>
+   
+</form>
+{% else %}
+<p style="margin-bottom: 50px;">You need to <a href="/login">authenticate</a> to leave a comment</p>
+{% endif %}
+{%if comments%}
+{% for comment in comments %}
+<div class="card" style="margin-bottom: 25px;">
+   <div class="card-body">
+      <h5 class="card-title m-auto" >{{comment[1]}}</h5>
+      {{comment[0].text}}
+      <div class="d-flex justify-content-end"><p class="font-weight-light m-0">{{comment[0].timestamp}}</p></div>
+      
+   </div>
+</div>
+{% endfor %}
+{% else %}
+<div><h5 class="card-title m-auto" >There is no comments yet. You can be the first!</h5></div>
+{% endif %}
+{% endblock %}

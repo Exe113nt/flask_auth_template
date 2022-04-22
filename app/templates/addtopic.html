@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-between p-2">
+   <h1>Add Topic</h1>
+</div>
+<form action="/addtopic" method="POST">
+    <div class="form-group">
+        <label >Topic Theme</label>
+        <input class="form-control" type="text" name="topic_theme">
+    </div>
+    <div class="form-group">
+        <label >Topic text</label>
+        <textarea class="form-control" rows="3" name="topic_text"></textarea>
+      </div>
+      <input type="submit" class="input-group-text bg-success text-white" value="Publish">
+</form>
+
+
+{% endblock %}
