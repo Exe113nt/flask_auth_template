@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+      <div class="col">
+        <img src="../static/img/{{product[0].image}}.jpg" alt="..." class="img-thumbnail">
+      </div>
+      <div class="col">
+        <h1>{{product[0].name}}</h1>
+        <h5>{{product[1]}}</h5>
+        <h5>{{product[2]}}</h5>
+        <p>{{product[0].description}}</p>
+      </div>
+{% endblock %}

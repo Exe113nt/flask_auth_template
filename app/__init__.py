@@ -18,6 +18,9 @@ def create_app():
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
 
+    from .profile import profile as profile_blueprint
+    app.register_blueprint(profile_blueprint)
+
     db.init_app(app)
     migrate = Migrate(app, db)
 

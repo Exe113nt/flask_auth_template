@@ -1,10 +1,65 @@
 {% extends "base.html" %}
-
 {% block content %}
-<h1 class="title">
-  Index pagefuidjoskiufsdjkl
-</h1>
-<h2 class="subtitle">
-    Subtitle textdfcjhbjhd vcjhn v
-</h2>
+<form class="d-flex justify-space-between" action="/search" method="GET">
+<div class="filters container d-flex-column mt-4">
+   <div class="search-group d-flex my-4   ">
+      <input class="form-control "   type="search" placeholder="Search" aria-label="Search" name="q">
+       <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</button>
+   </div>
+    
+      <div class="d-flex justify-space-between">
+        <div class="options d-flex px-5 justify-space-between">
+            <div class="options__element mx-5 my-auto">
+                <label >Brand</label> 
+                <select class="form-control" name='brand'>
+                  <option></option>
+                   {% for brand in brands %}
+                    <option>{{brand[0]}}</option>
+                  {% endfor %}
+                </select>
+            </div>
+            <div class="options__element m-auto">
+                <label >Type</label>
+                <select class="form-control" name='type'>
+                  <option></option>
+                   {% for type in types %}
+                    <option>{{type[0]}}</option>
+                  {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="price-group d-flex justify-space-between align-middle">
+            <div class="form-group d-flex flex-column justify-space-between">
+                <label >Min. Price</label>
+                <input type="text"   placeholder="12" name="min_price">
+            </div>
+            <div class="form-group d-flex flex-column">
+                <label >Max. Price</label>
+                <input type="text"  placeholder="799" style="width: 200px;" name="max_price">
+            </div>
+        </div>
+        <div class="filters__confirm m-auto">
+            <input type="submit" value="Confirm filters" class="btn btn-outline-success my-2 my-sm-0 m-auto" >
+        </div>
+      </form>
+   </div>
+   <br><br><br>
+   <div class="row row-cols-1 row-cols-md-3 mt-50 m-auto d-flex justify-content-center" >
+
+      {% for product in products%}
+      <a href="/viewproduct/{{product.id}}" class="text-decoration-none text-body" style="max-width: 250px;">
+          <div class="col mb-4 p-3 ">
+          <div class="card" style="max-width: 250px;">
+              <img src="../static/img/{{product.image}}.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+              <h5 class="card-title text-black">{{product.name}} </h5>
+              <p class="card-text text-right">{{product.price}}</p>
+              </div>
+          </div>
+          </div>
+      </a>
+      {% endfor %}
+
+    </div>
+
 {% endblock %}
