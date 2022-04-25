@@ -21,6 +21,9 @@ def create_app():
     from .students import students as students_blueprint
     app.register_blueprint(students_blueprint)
 
+    from .trainings import trainings as trainings_blueprint
+    app.register_blueprint(trainings_blueprint)
+
     db.init_app(app)
     migrate = Migrate(app, db)
 

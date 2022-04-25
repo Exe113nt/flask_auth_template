@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+<div class="d-flex justify-content-between p-2">
+    <h1>Info</h1>
+    <div class="d-flex">
+        <a href="/editstudent/{{student.id}}"><button type="button" class="btn btn-success">Edit</button></a>
+        <form action="/deletestudent", method="POST">
+            <input type="text" value="{{student.id}}" name="student_id" hidden>
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    
+    </div>
+    
+    <br>
+</div>
+    <div class="info">
+
+        <p><b>Имя: </b>{{student.name}}</p>
+        <p><b>Фамилия: </b>{{student.surname}}</p>
+        <!-- <p><b>Группа: </b>{{group}}</p> -->
+    </div>
+</div>
+
+{%endblock%}
