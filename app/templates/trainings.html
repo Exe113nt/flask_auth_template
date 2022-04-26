@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container">
-  <div class="d-flex justify-content-between p-2">
+  <div class="d-flex justify-content-between p-2"style="color: whitesmoke">
       <h1>All Trainings</h1>
       <div class="d-flex">
           <a href="/newtraining"><button type="button" class="btn btn-primary">Add</button></a>
@@ -11,7 +11,7 @@
   {% for training in trainings %}
   <div class="card w-150 mb-3">
     <div class="card-body">
-      <a href="/viewtraining/{{training.id}}" class="text-decoration-none text-body"><h5 class="card-title">{{training.date}}</h5></a>
+      <p ><h5 class="card-title" style="color: black;">{{training.date}}</h5></p>
     </div>
   </div>
   {% endfor %}

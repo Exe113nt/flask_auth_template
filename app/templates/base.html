@@ -8,20 +8,20 @@
     <title>SwimPRO</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
-<body>
+<body style= "background-color: black; color: whitesmoke">
     <header>
 
 
-            <nav class="navbar navbar-expand-sm navbar-light bg-info main-nav">
+            <nav class="navbar navbar-expand-sm navbar-light main-nav" style="background-color: #000;">
                 <div class="container">
-                    <a class="navbar-brand" href="{{url_for('main.index')}}">SwimPRO</a>
+                    <a class="navbar-brand text-white" href="{{url_for('main.index')}}">SwimPRO</a>
                     <ul class="nav navbar-nav">
                         {% if current_user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url_for('students.studentslist', group_id=0)}}">Students</a>
+                            <a class="nav-link text-white" href="{{url_for('students.studentslist', group_id=0)}}">Students</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url_for('trainings.trainingslist', group_id=0)}}">Trainings</a>
+                            <a class="nav-link text-white" href="{{url_for('trainings.trainingslist', group_id=0)}}">Trainings</a>
                         </li>
                         {% endif %}
                     </ul>
@@ -29,15 +29,15 @@
                         {% if current_user.is_authenticated %}
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url_for('auth.logout')}}">Log Out</a>
+                            <a class="nav-link text-white" href="{{url_for('auth.logout')}}">Log Out</a>
                         </li>
                         {% endif %}
                         {% if not current_user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url_for('auth.login')}}">Sign In</a>
+                            <a class="nav-link text-white" href="{{url_for('auth.login')}}">Sign In</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url_for('auth.signup')}}">Sign up</a>
+                            <a class="nav-link text-white" href="{{url_for('auth.signup')}}">Sign up</a>
                         </li>
                         {% endif %}
                     </ul>
@@ -46,7 +46,7 @@
 
         
     </header>
-    <main class="d-flex">
+    <main class="d-flex" style="color: black;">
         {% if current_user.is_authenticated %}
         <div class="sidebar left ">
             <div class="card" style="width: 18rem;">
@@ -54,9 +54,9 @@
                   Groups
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><a href="{{route}}/0">All</a></li>
+                    <li class="list-group-item" ><u><a href="{{route}}/0"style="color: black;">All</a></u></li>
                     {% for group in grouplist %}
-                  <li class="list-group-item"><a href="{{route}}/{{group.id}}">{{group.text}}</a></li>
+                  <li class="list-group-item"><u><a href="{{route}}/{{group.id}}"style="color: black;">{{group.text}}</a></u></li>
                   {% endfor %}
 
                 </ul>

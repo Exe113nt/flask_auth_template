@@ -4,9 +4,9 @@
 
 
 <div class="container">
-    <div class="d-flex justify-content-between p-2">
+    <div class="d-flex justify-content-between p-2"style="color: whitesmoke">
         <h1>Card</h1>
-        <div class="d-flex">
+        <div class="d-flex"style="color: whitesmoke">
             <a href="/editstudent/{{student.id}}"><button type="button" class="btn btn-success mr-2">Edit</button></a>
             <form action="/deletestudent", method="POST">
                 <input type="text" value="{{student.id}}" name="student_id" hidden>
@@ -16,7 +16,7 @@
     </div>
 
 
-<div class="container m-auto w-150">
+<div class="container m-auto w-150"style="color: whitesmoke">
 
         <p><b>Имя: </b>{{student.name}}</p>
         <p><b>Фамилия: </b>{{student.surname}}</p>
