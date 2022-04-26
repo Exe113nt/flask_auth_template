@@ -1,9 +1,5 @@
-from math import prod
-from re import search
 from flask import Blueprint, render_template, request, redirect
 from flask_login import login_required, current_user
-from html2text import re
-from numpy import product
 from . import db
 from .models import Product, Brand, Type
 import uuid

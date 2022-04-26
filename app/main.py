@@ -1,8 +1,6 @@
-from math import prod
-from re import search
+
 from flask import Blueprint, render_template, request
 from flask_login import login_required, current_user
-from numpy import product
 from . import db
 from .models import Product, Brand, Type
 
@@ -39,7 +37,7 @@ def search():
     products = db.engine.execute(query).all()
     print(query)
     print(products)
-    return render_template('index.html', products=products, brands=brands, types=types)
+    return render_template('search_index.html', products=products, brands=brands, types=types)
     # print(search_query2)
     # print(search_query)
     # products = Product.query.filter(Product.name.contains(search_query2), ).all()
