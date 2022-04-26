@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash
 from . import db
-from .models import Training, User, Group, Student
+from .models import Training, User, Group_, Student
 from flask_login import current_user, login_user, logout_user, login_required
 
 trainings = Blueprint('trainings', __name__)
@@ -14,7 +14,7 @@ def trainingslist(group_id):
     else:
         trainings = Training.query.filter_by(couch_id=current_user.id, group_id=group_id).order_by(Training.date.desc()).all()
 
-    grouplist = Group.query.all()  
+    grouplist = Group_.query.all()  
     route = '/trainingslist'
     return render_template('trainings.html', trainings=trainings, grouplist=grouplist, route=route)
 
@@ -23,7 +23,7 @@ def trainingslist(group_id):
 @trainings.route('/newtraining')
 @login_required
 def newtraining():
-    grouplist = Group.query.all()  
+    grouplist = Group_.query.all()  
     return render_template('newtraining.html', grouplist=grouplist)
 
 
@@ -34,7 +34,7 @@ def newtraining_post():
     date = request.form['date']
     group = request.form['group']
 
-    new_training = Training(date=date, group_id=Group.query.filter_by(text=group).first().id, couch_id=current_user.id)
+    new_training = Training(date=date, group_id=Group_.query.filter_by(text=group).first().id, couch_id=current_user.id)
 
     db.session.add(new_training)
     db.session.commit()

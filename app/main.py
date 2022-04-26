@@ -6,7 +6,7 @@ main = Blueprint('main', __name__)
 
 @main.route('/')
 def index():
-    return redirect('/login')
+    return redirect('/studentslist/0')
 
 
 

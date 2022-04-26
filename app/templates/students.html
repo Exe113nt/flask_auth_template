@@ -1,16 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="main-side">
-<div class="container ml-5">
-  <h1 class="m-5">All Students</h1>
-  <a href="/newstudent"><button type="button" class="btn btn-primary">Add</button></a>
+<div class="container">
+  <div class="d-flex justify-content-between p-2">
+      <h1>All Students</h1>
+      <div class="d-flex">
+          <a href="/newstudent"><button type="button" class="btn btn-primary">Add</button></a>
+      </div>
+  </div>
+  <div class="container-sm mt-5 ">
   {% for student in students %}
+  
   <div class="card w-150 mb-3">
     <div class="card-body">
       <a href="/viewstudent/{{student.id}}" class="text-decoration-none text-body"><h5 class="card-title">{{student.surname}} {{student.name}}</h5></a>
     </div>
   </div>
   {% endfor %}
+</div>
 </div>
 </div>
 </div>
