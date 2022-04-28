@@ -1,11 +1,11 @@
-{% extends "base.html" %}
+{% extends "newgroup_base.html" %}
 {% block content %}
 <div class="container">
   <div class="d-flex justify-content-between p-2">
       <h1>{{group.name}} Задачи</h1>
       {% if group != 'All' %}
       <div class="d-flex">
-          <a href="/newtask/{{group.id}}"><button type="button" class="btn btn-primary">Добавить +</button></a>
+          <a href="/newtask/{{group.id}}"><button type="button" class="btn btn-primary">Add</button></a>
       </div>
       {% endif %}
   </div>
@@ -16,7 +16,7 @@
     <div class="card-body d-flex justify-content-between">
     <div class="d-column justify-content-between">
       <a href="/viewstudent/" class="text-decoration-none text-body"><h5 class="card-title">{{task.name}}</h5></a>
-      <p><b>Сделать до: </b>{{task.expire_date}}</p>
+      <p><b>Expires: </b>{{task.expire_date}}</p>
     </div>
   <div class="block">
     <a class="align-middle" href="/deletetask/{{task.id}}"><i class="material-icons" style="font-size:20px;color:red">cancel</i></a>

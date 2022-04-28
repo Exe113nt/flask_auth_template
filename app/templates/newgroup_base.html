@@ -45,18 +45,18 @@
             <div class="card" style="width: 18rem;">
                 <div class="card-header d-flex justify-content-between">
                   <p>Списки</p>
-                  <a class="btn btn-primary" href="/newgroup">Добавить +</a>
+                  <a href="/" class="btn btn-danger text-white">Отменить</a>
                 </div>
                 <ul class="list-group list-group-flush">
+                    <li>
+                        <form class="d-flex justify-content-between p-2" action="/newgroup" method="POST">
+                            <input type="text" class="from-control" name="name">
+                            <button type="submit" class="btn btn-primary">Создать</button>
+                    </form>
+                    </li>
                     <li class="list-group-item"><a href="{{route}}/0">Все</a></li>
                     {% for group in grouplist %}
-                  <li class="list-group-item">
-                      <div class="d-flex justify-content-between">
-                        <a href="{{route}}/{{group.id}}">{{group.name}}</a>
-                        <a class="align-middle" href="/deletegroup/{{group.id}}"><i class="material-icons" style="font-size:20px;color:red">cancel</i></a>
-                      </div>
-                      
-                    </li>
+                  <li class="list-group-item"><a href="{{route}}/{{group.id}}">{{group.name}}</a></li>
                   {% endfor %}
 
                 </ul>
