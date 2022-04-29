@@ -6,10 +6,10 @@
     
 </div>
 
-
+<body style= "background-color: #BFAFF7;"">
 <div class="row row-cols-1 row-cols-md-3 mt-50">
     {% if not cards%}
-    <h2>Nothing yet!</h2>
+    <h2 style = "margin-top: 10%; padding: 20px; font-size: 50px; font-family: 'Abril Fatface', cursive;">Nothing yet!</h2>
     {% else %}
     {% for card in cards%}
     <a href="/showcard/{{id}}/{{card.id}}">
@@ -25,5 +25,5 @@
     </a>
     {% endfor %}
     {% endif %}
-  </div>
+  </div> </body>
 {% endblock %}

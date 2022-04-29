@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="d-flex justify-content-between p-2">
-    <h1>Login</h1>
+    <h1 style= "font-family: 'Abril Fatface', cursive; margin-top: 5%; margin-left: 10%; padding: 20px">Login</h1>
 </div>
         {% with messages = get_flashed_messages() %}
 {% if messages %}
@@ -11,6 +11,7 @@
     </div>
 {% endif %}
 {% endwith %}
+<body style= "background-color: #BFAFF7;">
 <form method="POST" action="/login" class="w-50 m-auto pt-5">
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
@@ -27,5 +28,5 @@
         <button type="submit" class="btn btn-primary">Login</button>
 
         </form>
-
+</body>
 {% endblock %}
