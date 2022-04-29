@@ -11,6 +11,7 @@ def create_app():
     app.config['SECRET_KEY'] = '0102'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.config['UPLOAD_FOLDER'] = '/static'
 
     from .auth import auth as auth_blueprint
     app.register_blueprint(auth_blueprint)
