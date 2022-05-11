@@ -10,8 +10,16 @@ class User(UserMixin, db.Model):
 
 class Card(UserMixin, db.Model):
     card_id = db.Column(db.Integer, primary_key=True)
-    text = db.Column((db.String(500))
-    timestamp = db.Column(db.Datetime, index = True, default= datetime.utcnow)
-    label = db.Column((db.String(40))
+    timestamp = db.Column(db.String(8), index = True, default= datetime.utcnow)
+    label = db.Column(db.String(40))
+    name = db.Column(db.String(50))
+    sec_name = db.Column(db.String(50))
+    contact_number = db.Column(db.String(20))
+    mail = db.Column(db.String(30))
+    adress = db.Column(db.String(30))
+    birthday = db.Column(db.String(10))
+    social_media = db.Column(db.String(20))
+
+
 
 

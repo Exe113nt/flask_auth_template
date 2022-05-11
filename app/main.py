@@ -32,7 +32,7 @@ def newcard():
 
 @main.route('/newcard', methods =["POST"])
 @login_required
-def newcard():
+def newcard_post():
 
     label = request.form['']
     text= request.form['']
