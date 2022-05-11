@@ -35,9 +35,15 @@ def newcard():
 def newcard_post():
 
     label = request.form['']
-    text= request.form['']
+    name = request.form['']
+    sec_name = request.form['']
+    contact_number = request.form['']
+    mail = request.form['']
+    adress = request.form['']
+    birthday = request.form['']
+    social_madia = request.form['']
 
-    new_card = Card(text=text, label = label)
+    new_card = Card(label = label, name = name, sec_name = sec_name, contact_number = contact_number, mail = mail, adress = adress, birthday = birthday, social_madia = social_madia)
     db.session(new_card)
     db.sessioncommit()
 
