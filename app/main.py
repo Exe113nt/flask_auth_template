@@ -2,6 +2,8 @@ from flask import Blueprint, render_template, request, redirect
 from flask_login import login_required, current_user
 from . import db
 from .models import User, Comment, Product
+import uuid
+import os
 main = Blueprint('main', __name__)
 
 @main.route('/')
@@ -29,16 +31,35 @@ def addcomment_post():
 @main.route('/newproduct')
 @login_required
 def newproduct():
-    return ""
+    return render_template('newproduct.html')
 
 
 @main.route('/newproduct', methods=["POST"])
 @login_required
 def newproduct_post():
-    return ""
+    title = request.form['title']
+    description = request.form['description']
+    uid = uuid.uuid4().hex
 
+    
+    if request.files["image"].filename != '':
+        f = request.files['image']
+        f.save(os.path.dirname(__file__)+'/static/'+uid + '.jpg')
 
-@main.route('/delete', methods=["POST"])
+    new_product = Product(owner_id=current_user.id, header=title, description=description, image=uid)
+    db.session.add(new_product)
+    db.session.commit()
+    return redirect('/')
+
+@main.route('/myproducts')
 @login_required
-def delete_post():
-    return ""  
+def myproducts():
+    products = Product.query.filter_by(owner_id=current_user.id)
+    return render_template('myproducts.html', products=products)
+
+@main.route('/delete/<int:pr_id>')
+@login_required
+def delete(pr_id):
+    Product.query.filter_by(id=pr_id).delete()
+    db.session.commit()
+    return redirect('/myproducts') 
