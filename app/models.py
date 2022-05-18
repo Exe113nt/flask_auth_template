@@ -8,7 +8,7 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String(100))
     name = db.Column(db.String(100))
 
-class Card(UserMixin, db.Model):
+class Collection(UserMixin, db.Model):
     card_id = db.Column(db.Integer, primary_key=True)
     timestamp = db.Column(db.String(8), index = True, default= datetime.utcnow)
     label = db.Column(db.String(40))
