@@ -7,7 +7,7 @@ main = Blueprint('main', __name__)
 @main.route('/')
 def index():
     # Выбрать все из Cards
-    cards = Card.query.all()
+    cards = Collection.query.all()
 
     return render_template('index.html', cards=cards)
 
