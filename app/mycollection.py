@@ -1,25 +1,6 @@
-from flask import Blueprint, render_template, flash, redirect, request, url_for
-from flask_login import login_required, current_user
-from .models import Collection
-from . import db
-import uuid
-import os
-from hashlib import md5
-from urllib.request import urlretrieve
-import requests
-import shutil
-
-mycollection = Blueprint('mycollection', __name__)
-
-@mycollection.route('/collection')
-@login_required
-def mycollection():
-    cards = Collection.query.filter_by(owner_id=current_user.id).all()
-    return render_template('mycollection.html', name = current_user.name, id=current_user.id, cards=cards)
-
 @mycollection.route('/view/<int:card_id>')
 def view(card_id):
-    card = Collection.query.filter_by(id=card_id).first()
+    card = Card.query.filter_by(id=card_id).first()
 
     return render_template('view.html', card=card)
 
@@ -30,23 +11,21 @@ def newcard():
     return render_template('new_one.html')
 
 
-@mycollection.route('/addform', methods =["POST"])
+@mycollection.route('/newcard', methods =["POST"])
 @login_required
 def newcard_post():
 
-    # label = request.form['']
+    label = request.form['']
     name = request.form['name']
     sec_name = request.form['sec_name']
     contact_number = request.form['contact_number']
     mail = request.form['mail']
     adress = request.form['adress']
-    birthday = request.form['birthDate']
+    birthday = request.form['birthday']
     social_madia = request.form['social_media']
 
-    uid = uuid.uuid4().hex
-
-    new_card = Card(label = label, name = name, sec_name = sec_name, contact_number = contact_number, mail = mail, adress = adress, birthday = birthday, social_madia = social_madia)
+    new_card = Collection(label = label, name = name, sec_name = sec_name, contact_number = contact_number, mail = mail, adress = adress, birthday = birthday, social_madia = social_madia)
     db.session(new_card)
     db.sessioncommit()
 
-    return redirect('/collection')
+    return redirect('/')

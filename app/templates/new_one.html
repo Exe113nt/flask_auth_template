@@ -2,9 +2,9 @@
 {% block content %}
 <div class="d-flex justify-content-between p-2">
     <h1 style = "font-family:'Abril Fatface', cursive; margin-top: 5%; margin-left: 10%; padding: 20px">New card</h1>
-    <a href="/mycards"><button type="button" class="btn btn-primary">Back</button></a>    
+    <a href="/profile"><button type="button" class="btn btn-primary">Back to profile</button></a>
 </div>
-<body style= "background-color: #F5DEB3;"></body>
+<body style= "background-color: #FFDEAD;"></body>
 <form class="w-50 m-auto" method="POST" action="addcard" enctype="multipart/form-data">
     <div class="form-group">
       <label for="exampleInputEmail1">Name</label>
@@ -15,27 +15,27 @@
         <input type="text" class="form-control" maxlength="40" name="sec_name">
       </div>
       <div class="form-group">
+        <label for="exampleInputEmail1">Birthday</label>
+        <input type="date" class="form-control" maxlength="40" name="birthDate">
+      </div>
+      <div class="form-group">
         <label for="exampleInputEmail1">Contact number</label>
         <input type="text" class="form-control" maxlength="40" name="contact_number">
       </div>
       <div class="form-group">
         <label for="exampleInputEmail1">E-mail</label>
-        <input type="text" class="form-control" maxlength="40" name="mail">
+        <input type="text" class="form-control" maxlength="40"  name="mail">
       </div>
       <div class="form-group">
         <label for="exampleInputEmail1">Social media</label>
-        <input type="text" class="form-control" maxlength="40"  name="social_media">
+        <input type="text" class="form-control" maxlength="40" name="social_media">
       </div>
       <div class="form-group">
         <label for="exampleInputEmail1">Adress</label>
         <input type="text" class="form-control" maxlength="40" name="adress">
       </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Birthday</label>
-        <input type="date" class="form-control" maxlength="40" name="birthDate">
-      </div>
       <br>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Create</button>
   </form>
 
   {% endblock %}
