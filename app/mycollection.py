@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, flash, redirect, request, url_for
 from flask_login import login_required, current_user
-from .models import Card
+from .models import Collection
 from . import db
 import uuid
 import os
@@ -13,10 +13,9 @@ import shutil
 mycollection = Blueprint('mycollection', __name__) 
 
 @mycollection.route('/mycollection')
-def coll(card_id):
-    card = Collection.query.filter_by(id=card_id).first()
-
-    return render_template('myCollection.html', card=card)
+def coll():
+    cards = Collection.query.filter_by(owner_id=current_user.id).all()
+    return render_template('myCollection.html', name = current_user.name, id=current_user.id, cards=cards)
 
 
 @mycollection.route('/newcard')
