@@ -22,7 +22,7 @@
                     <ul class="nav navbar-nav">
                         {% if current_user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link" style = "background-color: #DEB887; font-weight: bold; font-style: italic;" href="{{url_for('mycollection.mycollection')}}">Your collection</a>
+                            <a class="nav-link" style = "background-color: #DEB887; font-weight: bold; font-style: italic;" href="{{url_for('mycollection.coll')}}">Your collection</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" style = "background-color: #D2B48C; font-weight: bold; font-style: italic" href="{{url_for('auth.logout')}}">Log Out</a>
@@ -33,7 +33,7 @@
                             <a class="nav-link" style = "background-color: #DEB887; font-weight: bold; font-style: italic;" href="{{url_for('auth.login')}}">Sign In</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url_for('auth.signup')}}" style = "background-color: cornsilk; font-weight: bold; font-style: italic">Sign up</a>
+                            <a class="nav-link" href="{{url_for('auth.signup')}}" style = "background-color: #DEB887; font-weight: bold; font-style: italic">Sign up</a>
                         </li>
                         {% endif %}
                     </ul>

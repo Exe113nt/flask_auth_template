@@ -11,11 +11,12 @@ import shutil
 
 
 mycollection = Blueprint('mycollection', __name__) 
-# @mycollection.route('/view/<int:card_id>')
-# def view(card_id):
-#     card = Collection.query.filter_by(id=card_id).first()
 
-#     return render_template('view.html', card=card)
+@mycollection.route('/mycollection')
+def coll(card_id):
+    card = Collection.query.filter_by(id=card_id).first()
+
+    return render_template('myCollection.html', card=card)
 
 
 @mycollection.route('/newcard')
