@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>friedco</title>
+    <title>friedship</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
                     <ul class="nav navbar-nav">
                         {% if current_user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link" style = "background-color: #DEB887; font-weight: bold; font-style: italic;" href="{{url_for('main.index')}}">Your collection</a>
+                            <a class="nav-link" style = "background-color: #DEB887; font-weight: bold; font-style: italic;" href="{{url_for('mycollection.mycollection')}}">Your collection</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" style = "background-color: #D2B48C; font-weight: bold; font-style: italic" href="{{url_for('auth.logout')}}">Log Out</a>
