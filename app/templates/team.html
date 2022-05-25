@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-end p-2" style= "background-color: #3914AF	;">
+    <a href="/"><button type="button" class="btn btn-primary">Ни шагу назад</button></a>
+    
+</div>
+
+<div class="card mt-1" style= "background-color: #3914AF	;">
+    <img src="{{team.image}}" class="" alt="..." height="200px" width="200px">
+    <div class="card-body">
+      <h5 class="card-title text-white" >{{team.name}}</h5>
+      <p class="card-text text-white">{{team.description}}</p>
+      <a class="card-text text-white" href="{{team.siteUrl}}">Сайт команды</a>
+    </div>
+  </div>
+
+{% endblock %}

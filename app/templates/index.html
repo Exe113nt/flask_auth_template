@@ -1,10 +1,21 @@
 {% extends "base.html" %}
-
 {% block content %}
-<h1 class="title">
-  Index pagefuidjoskiufsdjkl
-</h1>
-<h2 class="subtitle">
-    Subtitle textdfcjhbjhd vcjhn v
-</h2>
+
+
+<body style= "background-color: #3914AF	;">
+<div class="row row-cols-1 row-cols-md-3 mt-5">
+
+    {% for team in teams%}
+    <a href="/team/{{team.id}}" class="text-decoration-none">
+        <div class="col mb-4">
+        <div class="card" style="max-width: 250px;">
+            <img src="{{team.image}}" class="card-img-top" alt="..." height="200px" width="200px">
+            <div class="card-body">
+            <h5 class="card-title">{{team.name}}</h5>
+            </div>
+        </div>
+        </div>
+    </a>
+    {% endfor %}
+  </div> </body>
 {% endblock %}
