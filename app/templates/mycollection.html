@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="d-flex justify-content-between p-2">
-    <h1>{{name}}</h1>
+    <h1>Your collection</h1>
     <a href="/newcard"><button type="button" class="btn btn-primary">Create</button></a>
     
 </div>
 
 <body style= "background-color: #F5DEB3;">
 <div class="row row-cols-1 row-cols-md-3 mt-50">
-    {% if not mycollection%}
+    {% if not cards%}
     <h2 style = "margin-top: 10%; padding: 20px; font-size: 50px; font-family: 'Abril Fatface', cursive;">Nothing yet! Create new card to add it here!</h2>
     {% else %}
-    {% for card in mycollection%}
+    {% for card in cards%}
     <a href="/showcard/{{id}}/{{card.id}}">
         <div class="col mb-4">
         <div class="card" style="max-width: 250px;">

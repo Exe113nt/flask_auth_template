@@ -27,7 +27,7 @@ def login_post():
         return redirect(url_for('auth.login_post'))
 
     login_user(user, remember=remember)
-    return redirect(url_for('main.profile'))
+    return redirect(url_for('mycollection.coll'))
 
 @auth.route('/signup', methods=['POST'])
 def signup_post():
@@ -51,5 +51,3 @@ def signup_post():
 def logout():
     logout_user()
     return redirect(url_for('main.index'))
-
-    

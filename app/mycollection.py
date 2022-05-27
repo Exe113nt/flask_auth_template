@@ -13,9 +13,11 @@ import shutil
 mycollection = Blueprint('mycollection', __name__) 
 
 @mycollection.route('/mycollection')
+@login_required
 def coll():
     cards = Collection.query.filter_by(owner_id=current_user.id).all()
-    return render_template('myCollection.html', name = current_user.name, id=current_user.id, cards=cards)
+    print(cards)
+    return render_template('mycollection.html', name = current_user.name, id=current_user.id, cards=cards)
 
 
 @mycollection.route('/newcard')
@@ -28,23 +30,23 @@ def newcard():
 @login_required
 def newcard_post():
 
-    label = request.form['']
+    # label = request.form['']
     name = request.form['name']
     sec_name = request.form['sec_name']
     contact_number = request.form['contact_number']
     mail = request.form['mail']
     adress = request.form['adress']
-    birthday = request.form['birthday']
-    social_madia = request.form['social_media']
+    birthday = request.form['birthDate']
+    social_media = request.form['social_media']
 
-    new_card = Collection(label = label, name = name, sec_name = sec_name, contact_number = contact_number, mail = mail, adress = adress, birthday = birthday, social_madia = social_madia)
-    db.session(new_card)
-    db.sessioncommit()
+    new_card = Collection(owner_id = current_user.id, name = name, sec_name = sec_name, contact_number = contact_number, mail = mail, adress = adress, birthday = birthday, social_media = social_media)
+    db.session.add(new_card)
+    db.session.commit()
 
-    return redirect('/')
+    return redirect('/profile')
 
 
-@cards.route('/showcard/<int:user_id>/<int:card_id>')
+@mycollection.route('/showcard/<int:user_id>/<int:card_id>')
 @login_required
 def showcard(user_id, card_id):
     if current_user.id != user_id:
@@ -53,3 +55,16 @@ def showcard(user_id, card_id):
     card = Collection.query.filter_by(owner_id=current_user.id, id=card_id).first()
 
     return render_template('show.html', card=card, id=current_user.id)
+
+@mycollection.route('/adding', methods=['POST'])
+@login_required
+def add_one():
+    firstName = request.form['name']
+    middleName = request.form['sec_name']
+    contact_number = request.form['contact_number']
+    email = request.form['email']
+    adress = request.form['adress']
+    birthDate = request.form['birthDate']
+    social_media = request.form['social_media']
+
+    uid = uuid.uuid4().hex

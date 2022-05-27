@@ -17,12 +17,12 @@
 
         <nav class="navbar navbar-expand-sm navbar-light  main-nav" style="background-color: #FFF8DC">
                 <div class="container">
-                    <a class="navbar-brand" style= "font-size: 30px; color: #D2B48C; font-weight: bold; font-style: italic;" href="{{url_for('main.index')}}">Profile</a>
+                    <a class="navbar-brand" style= "font-size: 30px; color: black; font-weight: bold; font-style: italic;" href="{{url_for('main.index')}}">Profile</a>
             
                     <ul class="nav navbar-nav">
                         {% if current_user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link" style = "background-color: #DEB887; font-weight: bold; font-style: italic;" href="{{url_for('mycollection.myCollection')}}">Your collection</a>
+                            <a class="nav-link" style = "background-color: #DEB887; font-weight: bold; font-style: italic;" href="{{url_for('mycollection.coll')}}">Your collection</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" style = "background-color: #D2B48C; font-weight: bold; font-style: italic" href="{{url_for('auth.logout')}}">Log Out</a>

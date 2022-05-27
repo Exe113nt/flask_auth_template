@@ -18,6 +18,9 @@ def create_app():
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
 
+    from .mycollection import mycollection as mycollection_blueprint
+    app.register_blueprint(mycollection_blueprint)
+
     db.init_app(app)
     migrate = Migrate(app, db)
 
