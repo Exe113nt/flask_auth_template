@@ -16,7 +16,6 @@ mycollection = Blueprint('mycollection', __name__)
 @login_required
 def coll():
     cards = Collection.query.filter_by(owner_id=current_user.id).all()
-    print(cards)
     return render_template('mycollection.html', name = current_user.name, id=current_user.id, cards=cards)
 
 
@@ -49,7 +48,7 @@ def newcard_post():
 @mycollection.route('/showcard/<int:user_id>/<int:card_id>')
 @login_required
 def showcard(user_id, card_id):
-    if current_user.id != user_id:
+    if current_user.id != user.id:
         return 505
     
     card = Collection.query.filter_by(owner_id=current_user.id, id=card_id).first()

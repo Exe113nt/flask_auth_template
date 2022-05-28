@@ -2,7 +2,7 @@
 {% block content %}
 <div class="d-flex justify-content-between p-2">
 
-    <h1>Anket</h1>
+    <h1>{{card.name}}' anket</h1>
     <a href="/mycards"><button type="button" class="btn btn-primary">Back</button></a>
 
     
@@ -40,9 +40,9 @@
       </li>
     </ul>
 
-    <div class="card-body">
+    <!-- <div class="card-body">
         <a href="/changecard/{{id}}/{{card.id}}"><button type="button" class="btn btn-success">Сhange Data</button></a>
         <a href="/deletecard/{{id}}/{{card.id}}"><button type="button" class="btn btn-danger ml-1">Delete Card</button></a>
-    </div>
+    </div> -->
   </div>
 {% endblock %}
